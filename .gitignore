@@ -1,0 +1,4 @@
+.cache/*
+.vscode/*
+build/*
+workspace.code-workspace

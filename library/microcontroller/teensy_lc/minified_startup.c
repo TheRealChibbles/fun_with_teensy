@@ -1,8 +1,8 @@
 #include <stdint.h>
-#include "register.h"
+#include "./register.h"
 
 extern unsigned long _initial_stack;
-void reset_isr(void);
+void reset_isr(void); //isr interrupt service routine
 void nmi_isr(void);
 void hard_fault_isr(void);
 void timer_isr(void);
@@ -71,7 +71,7 @@ void service_isr(void)          __attribute__ ((weak, alias("not_used_isr")));
 void pendable_service_isr(void) __attribute__ ((weak, alias("not_used_isr")));
 void system_tick_isr(void)      __attribute__ ((weak, alias("not_used_isr")));
 
-// Die nächsten paar Symbole werden im Linker Script definiert
+// Die nï¿½chsten paar Symbole werden im Linker Script definiert
 //   und beziehen sich auf konkrete Zellen im resultiernden Image
 extern uint32_t _text_end;
 extern uint32_t _data_start;
@@ -80,9 +80,14 @@ extern uint32_t _bss_start;
 extern uint32_t _bss_end;
 
 // init function
-extern void morser(void);
+//extern void morser(void);
+__attribute__((weak)) void main(void)
+{
+  while(1){};
+}
 
-__attribute__ ((section(".startup"),optimize("-Os")))
+
+__attribute__ ((section(".startup"), optimize("-Os")))
   void reset_isr(void) {
   *SIM_COPC = 0x00000000; // disable the watchdog
 
@@ -117,8 +122,8 @@ __attribute__ ((section(".startup"),optimize("-Os")))
   *PIT_TCTRL0 = 0x00000003;
 
   // TODO, hier kommt der eigentliche Startup code hin
-  morser();
-
+  //morser();
+  main();
 }
 
 static uint8_t is_on = 0;

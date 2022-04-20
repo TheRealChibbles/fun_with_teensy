@@ -1,7 +1,7 @@
 #include <stdint.h>
 
 
-void morser(void) {
+void main(void) {
 
 
   /* uint32_t c = 0; */
@@ -14,8 +14,7 @@ void morser(void) {
   /*   } */
   /*   c++; */
   /* } */
-  while(1) {
-  };
+  while(1) {};
 }
 
 /*
@@ -23,9 +22,9 @@ void morser(void) {
 
   1. Wie muss der NVIC bespielt werden?
   2. Merkt sich der Prozessor wo er unterbrochen wurde, wenn ja wo und wie?
-  3. Wie kann man die Clock für das TIP modul konfigurieren?
+  3. Wie kann man die Clock fï¿½r das TIP modul konfigurieren?
   4. Wann ist ein interrupt abgeschlossen?
      1. Muss man das selber mache? Oder passiert das automatisch?
-     2. Wo ist der Übergang vom Resethandler zur Main?
+     2. Wo ist der ï¿½bergang vom Resethandler zur Main?
         Wo ist es sinnvoll die Main aufzurufen?
  */

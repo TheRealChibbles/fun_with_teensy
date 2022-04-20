@@ -1,4 +1,4 @@
-
+#include <stdint.h>
 #ifndef REGISTER_H
 #define REGISTER_H "register.h"
 
