@@ -11,6 +11,7 @@ void service_isr(void);
 void pendable_service_isr(void);
 void system_tick_isr(void);
 
+
 // siehe Sektion 3.3.2.3 in der Chipdokumentation
 #define NVIC_NUM_INTERRUPTS 32
 __attribute__ ((section(".vectors"), used))
